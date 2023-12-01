@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" ;>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem3</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="problem3"></p>
+</body>
+
+<script>
+    var productsArray = [
+        { name: 'The Alchemist', image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654371463i/18144590.jpg', price: 182700 },
+        { name: 'Learning How To Learn', image: 'https://cdn.kobo.com/book-images/47a57ccb-5e48-459b-89ae-a606b7fbb39b/1200/1200/False/learning-how-to-learn-7.jpg', price: 251100 },
+        { name: 'Thinking, Fast and Slow', image: 'https://m.media-amazon.com/images/I/61fdrEuPJwL._AC_UF1000,1000_QL80_.jpg', price: 299700 }
+    ];
+    function sortProductsByPrice(products) {
+        products.sort(function (a, b) {
+            return a.price - b.price;
+        });
+
+        return products;
+    }
+    var sortedProducts = sortProductsByPrice(productsArray);
+    console.log(sortedProducts);
+</script>
+
+<table border="1" style="text-align: center;">
+    <script>
+        document.write("<tr>");
+        for (var i = 0; i < sortedProducts.length; i++) {
+            document.write("<td>" + sortedProducts[i].name + "</td>");
+        }
+        document.write("</tr>");
+        document.write("<tr>");
+        for (var i = 0; i < sortedProducts.length; i++) {
+            document.write("<td><img src='" + sortedProducts[i].image + "' alt='Product Image' width='50'></td>");
+        }
+        document.write("</tr>");
+        document.write("<tr>");
+        for (var i = 0; i < sortedProducts.length; i++) {
+            document.write("<td>" + sortedProducts[i].price + " VND" + "</td>");
+        }
+        document.write("</tr>");
+    </script>
+</table>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <p id="problem4"></p>
+</body>
+<script>
+    class Product {
+        constructor(id, name, quantity, price, image) {
+            this.id=id;
+            this.name=name;
+            this.quantity=quantity;
+            this.price=price;
+            this.image=image;
+        }
+    }
+
+    let productList = [
+            new Product(1, 'Laptop', 5, 1200, 'laptop_image.jpg'),
+            new Product(2, 'Phone', 10, 800, 'phone_image.jpg'),
+            new Product(3, 'Tablet', 8, 500, 'tablet_image.jpg')
+        ];
+
+    function sortProductsByName() {
+        productList.sort((a,b) => a.name.localeCompare(b.name));
+    }
+
+    function printProducts(products) {
+        console.log("Initial Products: ");
+        productList.forEach(product => console.log(`ID: ${product.id}, Name: ${product.name}, Quantity: ${product.quantity}, Price: ${product.price}, Image: ${product.image}`));
+    }
+
+    function addProductsToHead(latestProductHead) {
+        productsArray.unshift(latestProductHead)
+    }
+
+    function addProductsToTail(latestProductTail) {
+        productsArray.push(latestProductTail)
+    }
+
+    function searchProductByName(name) {
+        console.log("Search Results: ");
+        const result = product.filter(product => product.name.toLowerCase().includes(name.toLowerCase()));
+        result.forEach(product => product => console.log(`ID: ${product.id}, Name: ${product.name}, Quantity: ${product.quantity}, Price: ${product.price}, Image: ${product.image}`));
+    }
+
+    function removeProductById(id) {
+        productList = productList.filter(product => product.id != id);
+    }
+
+    function editProductById(productId, updatedProduct) {
+            const index = productList.findIndex(product => product.id === productId);
+            if (index !== -1) {
+                productList[index] = { ...productList[index], ...updatedProduct };
+            }
+        }
+
+        function printUpdatedProducts() {
+            console.log("Updated Products:");
+            productList.forEach(product => console.log(`ID: ${product.id}, Name: ${product.name}, Quantity: ${product.quantity}, Price: ${product.price}, Image: ${product.image}`));
+        }
+
+        sortProductsByName();
+        printProducts();
+
+        const latestProductHead = new Product(4, 'Smartwatch', 15, 200, 'watch_image.jpg');
+        addProductToHead(latestProductHead);
+        printProducts();
+
+        const latestProductTail = new Product(5, 'Camera', 3, 600, 'camera_image.jpg');
+        addProductToTail(latestProductTail);
+        printUpdatedProducts();
+
+        searchProductsByName('Tablet');
+        printUpdatedProducts();
+
+</script>

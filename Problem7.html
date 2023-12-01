@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem7</title>
+</head>
+
+<body>
+    <h1>MMSA of N Numbers</h1>
+
+    <label for="numbersInput">Enter numbers separated by commas:</label>
+    <input type="text" id="numbersInput">
+
+    <button onclick="calculateMMSA()">Calculate MMSA</button>
+
+    <div id="result"></div>
+
+    <script>
+        function mmsa(numbers) {
+            if (numbers.length === 0) {
+                return "No numbers provided.";
+            }
+
+            let min = Number.MAX_VALUE;
+            let max = Number.MIN_VALUE;
+            let sum = 0;
+
+            for (let i = 0; i < numbers.length; i++) {
+                let currentNumber = numbers[i];
+
+                if (currentNumber < min) {
+                    min = currentNumber;
+                }
+                if (currentNumber > max) {
+                    max = currentNumber;
+                }
+
+                sum += currentNumber;
+            }
+
+            let average = sum / numbers.length;
+
+            const formattedOutput = [
+                `Min = ${min.toFixed(2)}`,
+                `Max = ${max.toFixed(2)}`,
+                `Sum = ${sum.toFixed(2)}`,
+                `Avg = ${average.toFixed(2)}`
+            ];
+
+            return formattedOutput.join('<br>');
+        }
+
+        function calculateMMSA() {
+            const inputElement = document.getElementById('numbersInput');
+            const resultElement = document.getElementById('result');
+
+            const inputValues = inputElement.value.split(',').map(num => parseFloat(num.trim()));
+
+            const result = mmsa(inputValues);
+            resultElement.innerHTML = result;
+        }
+    </script>
+</body>
+
+</html>

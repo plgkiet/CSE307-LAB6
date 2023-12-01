@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers from 1 to N</title>
+</head>
+
+<body>
+    <h1>Numbers from 1 to N</h1>
+    <div>
+        <label for="numberInput"> Enter a positive integer: </label>
+        <input type="number" id="numberInput" required="required">
+        <button onclick="printNumber()">Print Numbers</button>
+    </div>
+
+
+    <div id="outputContainer"></div>
+
+    <script>
+        function printNumbers() {
+            const inputElement = document.getElementById('numberInput');
+            const outputContainer = document.getElementById('outputContainer');
+            const N = parseInt(inputElement.value);
+
+            if (!isNaN(N) && N > 0) {
+                let result = '';
+                for (let i = 1; i <= N; i++) {
+                    result += i + ' ';
+                }
+                outputContainer.textContent = result;
+            } else {
+                outputContainer.textContent = 'Please enter a valid positive integer.';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

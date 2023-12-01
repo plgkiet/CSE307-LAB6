@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8";>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Problem2</title>
+    </head>
+    <body>
+
+        <div id="table-container"></div>
+        
+        <script>
+            function fillTable() {
+                var strings = ["1234", "1234abc", "0.15", "3.14ivan", "Infinity", "99999999999999999999"];
+        
+                var tableHTML = "<table border='1'>";
+                tableHTML += "<tr><th>str</th><th>parseInt(str)</th><th>parseFloat(str)</th><th>Number(str)</th><th>+str</th><th>str | 0</th></tr>";
+        
+                for (var i = 0; i < strings.length; i++) {
+                    var str = strings[i];
+                    var parseIntResult = parseInt(str);
+                    var parseFloatResult = parseFloat(str);
+                    var numberResult = Number(str);
+                    var unaryPlusResult = +str;
+                    var bitwiseORResult = str | 0;
+        
+                    tableHTML += `<tr><td>${str}</td><td>${parseIntResult}</td><td>${parseFloatResult}</td><td>${numberResult}</td><td>${unaryPlusResult}</td><td>${bitwiseORResult}</td></tr>`;
+                }
+        
+                tableHTML += "</table>";
+        
+                document.getElementById("table-container").innerHTML = tableHTML;
+            }
+        
+            fillTable();
+        </script>
+        
+        </body>
+</html>
